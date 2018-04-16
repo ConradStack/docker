@@ -26,7 +26,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
 	make install && \
     cd ../ && \
     rm -rf vcftools && \
-    apt-get -qqy autoremove --purge autoconf automake git ca-certificates curl build-essential && \
+    apt-get -qqy autoremove --purge autoconf automake git ca-certificates curl build-essential pkg-config apt-transport-https && \
     apt-get -qqy clean
 
 ENTRYPOINT ["vcftools"]

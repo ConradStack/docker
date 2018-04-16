@@ -2,8 +2,8 @@ FROM debian:stretch
 
 ARG git_commit=cb8e254feee3d1fb2ff37e9426ab86fa47cf9b40
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN apt-get update -qq && \
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
+    apt-get update -qq && \
     apt-get install -qqy --no-install-recommends\
       apt-transport-https \
       build-essential \
@@ -25,11 +25,12 @@ RUN apt-get update -qq && \
 	make && \
 	make install && \
     cd ../ && \
-    rm -rf vcftools
-RUN apt-get -qqy clean
-
-LABEL git.commitid="${git_commit}"
+    rm -rf vcftools && \
+    apt-get -qqy autoremove --purge autoconf automake git ca-certificates curl build-essential && \
+    apt-get -qqy clean
 
 ENTRYPOINT ["vcftools"]
 CMD ["-h"]
+
+
 

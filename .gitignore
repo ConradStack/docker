@@ -1,6 +1,9 @@
 
 _scratch/
 **/output/
+**/resources/
+**/run_busco_test/
+**/tmp/
 
 
 ## R / Rstudio files

@@ -1,4 +1,8 @@
 
+_scratch/
+**/output/
+
+
 ## R / Rstudio files
 #
 # ----------------
@@ -9,7 +13,6 @@
 **/.Rtmp
 .Renvion
 # ----------------
-
 
 ## macOS system files
 #

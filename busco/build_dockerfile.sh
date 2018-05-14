@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # download busco datasets:
+mkdir -p resources && cd resources
 ## Plants (embryophyta):
 wget http://busco.ezlab.org/datasets/embryophyta_odb9.tar.gz
 ## Fungi:
 wget http://busco.ezlab.org/datasets/basidiomycota_odb9.tar.gz
 ## Eukaryota:
 wget http://busco.ezlab.org/datasets/eukaryota_odb9.tar.gz
+cd ..
 
 # Build and tag:
 docker build -f Dockerfile -t "conradstack/busco:latest" .
